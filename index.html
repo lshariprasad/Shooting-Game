@@ -1,0 +1,94 @@
+<!-- 1index.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Raven Shooter — D R3</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="dark">
+    <!-- START SCREEN -->
+    <div id="startScreen" class="overlay center">
+        <h1>Raven Shooter — D R3</h1>
+        <div class="form-row">
+            <input id="playerNameInput" placeholder="Player name" autocomplete="off" />
+            <input id="playerEmailInput" placeholder="Email (optional)" />
+        </div>
+        <div class="form-row">
+            <label for="levelSelect">Start Level</label>
+            <select id="levelSelect">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="boss">Boss</option>
+            </select>
+        </div>
+        <div class="form-row actions">
+            <button id="startBtn" class="btn primary">Start</button>
+            <button id="nextUpgrade" class="btn">Next Upgrade</button>
+        </div>
+        <p class="hint">Use ← → to move, <strong>SPACE</strong> to shoot. Mobile: use on-screen buttons.</p>
+    </div>
+
+    <!-- GAME UI -->
+    <div id="gameUI" class="top-ui hidden">
+        <div class="left-info">
+            <span id="playerNameDisplay">Player: Player</span>
+            <span id="levelDisplay">Level: 1</span>
+        </div>
+        <div class="center-info">
+            <span id="scoreDisplay">Score: 0</span>
+        </div>
+        <div class="right-info">
+            <button id="saveBtn" class="btn small">Save</button>
+            <button id="downloadFeedback" class="btn small">Export FB</button>
+        </div>
+    </div>
+
+    <!-- Layer canvas (parallax background) -->
+    <canvas id="layerCanvas" class="bg-canvas"></canvas>
+
+    <!-- Main game canvas -->
+    <canvas id="canvas1" class="main-canvas"></canvas>
+
+    <!-- Collision (hidden) -->
+    <canvas id="collisioncanvas" class="hidden"></canvas>
+
+    <!-- Mobile controls -->
+    <div class="mobile-controls">
+        <button id="left" class="control">◀</button>
+        <button id="fire" class="control fire">FIRE</button>
+        <button id="right" class="control">▶</button>
+    </div>
+
+    <!-- End screen -->
+    <div id="endScreen" class="overlay hidden center">
+        <h2>Game Over</h2>
+        <p id="finalText">Final score: 0</p>
+        <textarea id="feedbackText" placeholder="Feedback (optional)"></textarea>
+        <div class="form-row actions">
+            <button id="submitFeedbackBtn" class="btn primary">Submit</button>
+            <button id="restartBtn" class="btn">Restart</button>
+        </div>
+    </div>
+
+    <!-- Small slider to control parallax speed -->
+    <div class="speed-control">
+        <label>Bg Speed</label>
+        <input id="slider" type="range" min="0" max="8" step="0.1" />
+        <span id="showGameSpeed">2</span>
+    </div>
+
+    <!-- Audio placeholders (optional actual files) -->
+    <audio id="snd-gun" src=""></audio>
+    <audio id="snd-hit" src=""></audio>
+    <audio id="snd-boss" src=""></audio>
+
+    <script src="
+    script.js"></script>
+</body>
+
+</html>
